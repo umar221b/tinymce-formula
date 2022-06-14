@@ -4,15 +4,15 @@ Formula plugin for tinyMCE WYSIWYG editor. Allows user to add equations and form
 
 ## Browser compatibility
 
-* IE8+
-* Chrome
-* Firefox
-* Safari
-* Opera
+- IE8+
+- Chrome
+- Firefox
+- Safari
+- Opera
 
 ## Dependencies
 
-* [tinyMCE](https://www.tiny.cloud/)
+- [tinyMCE](https://www.tiny.cloud/)
 
 ## Usage
 
@@ -25,15 +25,16 @@ plugins: '... formula',
 toolbar: '... formula'
 ```
 
-If you have installed the plugin in a different folder than the ```tinymce/plugins``` folder then you need to specify 
+If you have installed the plugin in a different folder than the `tinymce/plugins` folder then you need to specify
 the location where the plugin is installed:
 
 ```javascript
 external_plugins: {
-    formula: 'path/to/public/plugin/folder'
+  formula: "path/to/public/plugin/folder";
 }
 ```
 
+In this case you can remove `formula` from the plugins setting.
 
 ## License
 

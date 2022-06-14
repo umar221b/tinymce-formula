@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iCAPLyon1/tinymce-formula.git"
+    "url": "git+https://github.com/umar221b/tinymce-formula.git"
   },
   "keywords": [
     "tinyMCE",
@@ -19,19 +19,34 @@
     "editor"
   ],
   "author": "Panagiotis Tsavdaris",
+  "contributors": [
+    {
+      "name": "Panagiotis Tsavdaris",
+      "email": "ptsavdar@gmail.com",
+      "url": "https://github.com/ptsavdar"
+    },
+    {
+      "name": "Umar Alkafaween",
+      "email": "omar.ka923@gmail.com",
+      "url": "https://github.com/umar221b"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iCAPLyon1/tinymce-formula/issues"
+    "url": "https://github.com/umar221b/tinymce-formula/issues"
   },
-  "homepage": "https://github.com/iCAPLyon1/tinymce-formula#readme",
+  "homepage": "https://github.com/umar221b/tinymce-formula#readme",
+  "overrides": {
+    "graceful-fs": "^4.2.9"
+  },
   "devDependencies": {
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.0.13",
-    "gulp-concat": "^2.6.1",
-    "gulp-load-plugins": "^1.4.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.0.0",
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-clean-css": "latest",
+    "gulp-concat": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-rename": "latest",
+    "gulp-uglify": "latest",
     "mathjax": "^2.7.0"
   }
 }

@@ -12,46 +12,33 @@ Formula plugin for tinyMCE WYSIWYG editor. Allows user to add equations and form
 
 ## Dependencies
 
-* [tinyMCE](http://www.tinymce.com/)
+* [tinyMCE](https://www.tiny.cloud/)
 
 ## Usage
 
-Install using bower.
+Copy the source of the plugin to the plugins directory of your tinyMCE installation.
 
-```
-bower install tinymce-formula
-```
-
-Install using npm.
-
-```
-npm install tinymce-formula
-```
-
-Or copy the source of the plugin to the plugins directory of your tinyMCE installation.
-Add the formula plugin to your tinyMCE configuration
+Add the formula plugin to your tinyMCE configuration:
 
 ```javascript
-plugins: "... formula",
+plugins: '... formula',
+toolbar: '... formula'
 ```
-
-Add configuration options for the formula plugin. `path` is the only setting and is optional.
-
-```javascript
-formula: {
-    path: 'path/to/public/plugin/folder'
-},
-```
-
-## Configuration
-
-### path (optional if plugin installed inside `tinymce/plugins` folder, required otherwise)
 
 If you have installed the plugin in a different folder than the ```tinymce/plugins``` folder then you need to specify 
-the path (public) where the plugin is installed.
+the location where the plugin is installed:
+
+```javascript
+external_plugins: {
+    formula: 'path/to/public/plugin/folder'
+}
+```
+
 
 ## License
 
 MIT licensed
 
 Copyright (C) 2016 iCAP Lyon1, Panagiotis Tsavdaris
+
+The original plugin is published ([here](https://github.com/iCAPLyon1/tinymce-formula)). It is only compatible with tinyMCE4. This plugin is updated to work with versions 5 and 6 of tinyMCE.

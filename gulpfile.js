@@ -46,6 +46,7 @@ const paths = {
         "jax/output/SVG/fonts/TeX/*.js",
         "jax/output/SVG/autoload/*.js",
         "extensions/MathML/mml3.js",
+        "extensions/a11y/accessibility-menu.js",
         "extensions/AssistiveMML.js",
         "jax/input/MathML/entities/*.js",
         "jax/element/mml/optable/*.js",

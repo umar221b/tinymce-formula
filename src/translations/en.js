@@ -44,4 +44,4 @@
     'columns': 'Columns',
     'ok': 'Ok'
   }
-}())
+}());

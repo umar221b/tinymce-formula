@@ -2,7 +2,7 @@
   "name": "tinymce-formula",
   "version": "2.0.0",
   "description": "Formula plugin for tinyMCE WYSIWYG editor. Allows user to add equations and formulas inside tinyMCE",
-  "main": "plugin.js",
+  "main": "plugin.min.js",
   "scripts": {
     "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -2,71 +2,73 @@
  * Created by panos on 10/16/15.
  */
 (function() {
-  'use strict'
+  "use strict";
 
   window.DropdownList = function(areaPanel) {
-    this.areaPanel = areaPanel
-    this.element = document.createElement('div')
-    this.element.className = 'fm-editor-dropdown fm-editor-dropdown-button'
-    this.element.id = areaPanel.id + '-dropdown'
-    this.createLabel()
-    this.createList()
-  }
-  DropdownList.__name__ = ['DropdownList']
+    this.areaPanel = areaPanel;
+    this.element = document.createElement("div");
+    this.element.className = "fm-editor-dropdown fm-editor-dropdown-button";
+    this.element.id = areaPanel.id + "-dropdown";
+    this.createLabel();
+    this.createList();
+  };
+  DropdownList.__name__ = ["DropdownList"];
   DropdownList.prototype = {
     createLabel: function() {
-      this.labelButton = document.createElement('div')
-      this.labelButton.className = 'fm-editor-dropdown-label-button'
-      this.labelButtonText = document.createElement('div')
-      this.labelButtonText.className = 'fm-editor-dropdown-label-button-text'
-      this.labelButton.appendChild(this.labelButtonText)
-      this.element.appendChild(this.labelButton)
-      let dropdownList = this
-      this.labelButton.addEventListener('click', function(event) { dropdownList.toggleList(event) })
+      this.labelButton = document.createElement("div");
+      this.labelButton.className = "fm-editor-dropdown-label-button";
+      this.labelButtonText = document.createElement("div");
+      this.labelButtonText.className = "fm-editor-dropdown-label-button-text";
+      this.labelButton.appendChild(this.labelButtonText);
+      this.element.appendChild(this.labelButton);
+      let dropdownList = this;
+      this.labelButton.addEventListener("click", function(event) {
+        dropdownList.toggleList(event);
+      });
     },
     createList: function() {
-      this.listMountPoint = document.createElement('div')
-      this.listMountPoint.className = 'fm-editor-dropdown-list-mount-point'
-      let listElement = document.createElement('div')
-      listElement.className = 'fm-editor-dropdown-list-items'
-      this.listItemContainer = document.createElement('div')
-      this.listItemContainer.className = 'fm-editor-dropdown-list-items-container'
-      listElement.appendChild(this.listItemContainer)
-      this.listMountPoint.appendChild(listElement)
-      this.element.appendChild(this.listMountPoint)
+      this.listMountPoint = document.createElement("div");
+      this.listMountPoint.className = "fm-editor-dropdown-list-mount-point";
+      let listElement = document.createElement("div");
+      listElement.className = "fm-editor-dropdown-list-items";
+      this.listItemContainer = document.createElement("div");
+      this.listItemContainer.className =
+        "fm-editor-dropdown-list-items-container";
+      listElement.appendChild(this.listItemContainer);
+      this.listMountPoint.appendChild(listElement);
+      this.element.appendChild(this.listMountPoint);
     },
     toggleList: function(event) {
       if (this.active) {
-        this.hideList(event)
+        this.hideList(event);
+      } else {
+        this.showList(event);
       }
-      else {
-        this.showList(event)
-      }
-      event.stopPropagation()
-      return false
+      event.stopPropagation();
+      return false;
     },
     hideList: function(event) {
-      DomUtils.removeClass(this.listMountPoint, 'active')
-      this.active = false
+      DomUtils.removeClass(this.listMountPoint, "active");
+      this.active = false;
     },
     showList: function(event) {
-      DomUtils.addClass(this.listMountPoint, 'active')
-      this.active = true
+      DomUtils.addClass(this.listMountPoint, "active");
+      this.active = true;
     },
     addListItem: function(section, setActive) {
-      let item = new DropdownListItem(section, this)
-      this.listItemContainer.appendChild(item.element)
+      let item = new DropdownListItem(section, this);
+      this.listItemContainer.appendChild(item.element);
       if (setActive) {
-        item.setActive()
+        item.setActive();
       }
     },
     changeActiveItem: function(item) {
       if (this.activeItem !== null) {
-        this.activeItem.unsetActive()
+        this.activeItem.unsetActive();
       }
-      this.activeItem = item
-      this.labelButtonText.innerHTML = item.name
-      this.areaPanel.cloneButtonsToAreaBox(this.activeItem.section)
+      this.activeItem = item;
+      this.labelButtonText.innerHTML = item.name;
+      this.areaPanel.cloneButtonsToAreaBox(this.activeItem.section);
     },
     element: null,
     active: false,
@@ -77,5 +79,5 @@
     activeItem: null,
     areaPanel: null,
     __class__: DropdownList
-  }
-}())
+  };
+})();

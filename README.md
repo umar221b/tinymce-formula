@@ -48,5 +48,6 @@ In this case you can remove `formula` from the plugins setting.
 MIT licensed
 
 Copyright (C) 2016 iCAP Lyon1, Panagiotis Tsavdaris
+Copyright (C) 2022 Umar Alkafaween
 
 The original plugin is published ([here](https://github.com/iCAPLyon1/tinymce-formula)). It is only compatible with tinyMCE4. This plugin is updated to work with versions 5 and 6 of tinyMCE.

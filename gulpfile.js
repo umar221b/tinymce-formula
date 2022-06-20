@@ -9,6 +9,7 @@ const options = {
     tasks: [
       "clean",
       "copy:translations",
+      "copy:index",
       "copy:langs",
       "copy:images",
       "copy:mathjax",
@@ -82,6 +83,13 @@ const paths = {
         "jax/output/SVG/fonts/TeX/SansSerif/Bold/*.js",
         "jax/output/SVG/fonts/TeX/Size4/Regular/Main.js"
       ]
+    },
+    index: {
+      dir: "src",
+      files: [
+        "index.js",
+        "index.html"
+      ]
     }
   },
   dest: {
@@ -139,6 +147,14 @@ gulp.task("copy:images", function(files, srcFolder, destFolder) {
     paths.src.images.files,
     paths.src.images.dir,
     paths.dest.images
+  );
+});
+
+gulp.task("copy:index", function(files, srcFolder, destFolder) {
+  return copyTree(
+    paths.src.index.files,
+    paths.src.index.dir,
+    './dist'
   );
 });
 

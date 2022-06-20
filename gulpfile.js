@@ -8,7 +8,9 @@ const options = {
   build: {
     tasks: [
       "clean",
+      "copy:translations",
       "copy:langs",
+      "copy:images",
       "copy:mathjax",
       "minify:formula",
       "minify:plugin",
@@ -19,9 +21,17 @@ const options = {
 
 const paths = {
   src: {
+    plugin: "src/plugin.js",
     styles: ["src/css/*.css"],
     formula: ["src/parameters/*.js", "src/components/*.js", "src/lib/*.js"],
-    langs: ["src/translations/*.js"],
+    translations: ["src/translations/*.js"],
+    langs: ["src/langs/*.js"],
+    images: {
+      dir: "src/img",
+      files: [
+        "formula-editor-icons.png"
+      ]
+    },
     mathjax: {
       dir: "node_modules/mathjax/unpacked",
       files: [
@@ -75,15 +85,21 @@ const paths = {
     }
   },
   dest: {
-    styles: "css",
-    formula: "js",
-    langs: "js/translations",
-    mathjax: "js/mathjax"
+    styles: "dist/css",
+    formula: "dist/js",
+    translations: "dist/js/translations",
+    langs: "dist/langs",
+    mathjax: "dist/js/mathjax",
+    images: "dist/img"
   }
 };
 
 gulp.task("clean", function() {
   return del([paths.dest.styles, paths.dest.formula]);
+});
+
+gulp.task("copy:translations", function() {
+  return copyAndMinify(paths.src.translations, paths.dest.translations);
 });
 
 gulp.task("copy:langs", function() {
@@ -102,10 +118,10 @@ gulp.task("minify:formula", function() {
 
 gulp.task("minify:plugin", function() {
   return gulp
-    .src("plugin.js")
+    .src(paths.src.plugin)
     .pipe(plugins.rename("plugin.min.js"))
     .pipe(plugins.uglify())
-    .pipe(gulp.dest("./"));
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task("minify:styles", function() {
@@ -118,6 +134,14 @@ gulp.task("minify:styles", function() {
     .pipe(gulp.dest(paths.dest.styles));
 });
 
+gulp.task("copy:images", function(files, srcFolder, destFolder) {
+  return copyTree(
+    paths.src.images.files,
+    paths.src.images.dir,
+    paths.dest.images
+  );
+});
+
 gulp.task("copy:mathjax", function() {
   return copyAndMinifyTree(
     paths.src.mathjax.files,
@@ -127,6 +151,23 @@ gulp.task("copy:mathjax", function() {
 });
 
 gulp.task("build", gulp.series(...options.build.tasks));
+
+let copy = function(src, dest) {
+  return gulp
+    .src(src)
+    .pipe(gulp.dest(dest));
+};
+
+let copyTree = function(files, srcFolder, destFolder) {
+  let result;
+  for (let filePath of files) {
+    result = copy(
+      path.resolve(srcFolder, filePath),
+      path.resolve(destFolder, path.dirname(filePath))
+    );
+  }
+  return result;
+};
 
 let copyAndMinify = function(src, dest) {
   return gulp

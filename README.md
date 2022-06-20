@@ -16,7 +16,14 @@ Formula plugin for tinyMCE WYSIWYG editor. Allows user to add equations and form
 
 ## Usage
 
-Copy the source of the plugin to the plugins directory of your tinyMCE installation.
+Install using npm
+
+```javascript
+npm install tinymce6-formula
+```
+
+
+Or copy  the source of the plugin to the plugins directory of your tinyMCE installation.
 
 Add the formula plugin to your tinyMCE configuration:
 

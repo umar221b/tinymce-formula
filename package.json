@@ -1,7 +1,7 @@
 {
-  "name": "tinymce-formula",
+  "name": "tinymce6-formula",
   "version": "2.0.0",
-  "description": "Formula plugin for tinyMCE WYSIWYG editor. Allows user to add equations and formulas inside tinyMCE",
+  "description": "Formula plugin for tinyMCE WYSIWYG editor V5 and V6. Allows user to add equations and formulas inside tinyMCE",
   "main": "plugin.min.js",
   "scripts": {
     "build": "gulp build",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/umar221b/tinymce-formula.git"
+    "url": "git+https://github.com/umar221b/tinymce6-formula.git"
   },
   "keywords": [
     "tinyMCE",
@@ -32,9 +32,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/umar221b/tinymce-formula/issues"
+    "url": "https://github.com/umar221b/tinymce6-formula/issues"
   },
-  "homepage": "https://github.com/umar221b/tinymce-formula#readme",
+  "homepage": "https://github.com/umar221b/tinymce6-formula#readme",
   "devDependencies": {
     "del": "^6.1.1",
     "gulp": "^4.0.2",
